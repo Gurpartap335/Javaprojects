@@ -60,16 +60,17 @@ class BankAccount {
         System.out.println("Welcome " + customerName);
         System.out.println("Your ID is " + customerID);
 
-        System.out.println("A. Check Balance");
-        System.out.println("B. Deposit");
-        System.out.println("C. Withdraw");
-        System.out.println("D. Previous transaction");
-        System.out.println("E. Exit");
         char option;
         do {
             System.out.println("================================================");
-            System.out.println("Enter an option");
+            System.out.println("A. Check Balance");
+            System.out.println("B. Deposit");
+            System.out.println("C. Withdraw");
+            System.out.println("D. Previous transaction");
+            System.out.println("E. Exit");
             System.out.println("================================================");
+            System.out.print("Enter an option : ");
+
             option = s.next().charAt(0);
 
             switch (option) {

@@ -20,37 +20,45 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
-        Email em1 = new Email("John","Smith");
 
-//        int choice;
-//        do {
-//            System.out.println("\n**************************\nENTER YOUR CHOICE\n1.Show Info\n2.Change Password"
-//                    + "\n3.Change Mailbox Capacity\n4.Set Alternate Email\n5.Exit");
-//            choice = s.nextInt();
-//            switch (choice) {
-//                case 1:
-//                    em1.showInfo();
-//                    break;
-//                case 2:
-//                    em1.changePassword();
-//                    break;
-//                case 3:
-//                    em1.getPassword();
-//                    break;
-//                case 4:
-//                    em1.setAlternateEmail();
-//                    break;
-//                case 5:
-//                    em1.setAlternateEmail();
-//                    break;
-//                case 6:
-//                    System.out.println("Thanks for using this services");
-//                    break;
-//                default:
-//                    System.out.println("Invalid choice! Enter again");
-//            }
-//
-//        }
+        // Creating a new employee(i.e an object of the Email class).
+        Email em1 = new Email();
+
+        int choice;
+        do {
+            System.out.println("Enter your choice : ");
+            System.out.println(" 1 Show info \n 2 Change Password \n 3 Change mailbox capacity \n 4 set alternate Email \n 5 Get your email address \n 6 Get your password \n 7 Get your mailbox capacity");
+            System.out.println("Enter 8 to Exit");
+            choice = s.nextInt();
+            switch (choice) {
+                case 1:
+                    em1.showInfo();
+                    break;
+                case 2:
+                    em1.changePassword();
+                    break;
+                case 3:
+                    em1.setMailboxCapacity();
+                    break;
+                case 4:
+                    em1.setAlternateEmail();
+                    break;
+                case 5:
+                    em1.getEmail();
+                    break;
+                case 6:
+                    em1.getPassword();
+                    break;
+                case 7:
+                    em1.getMailboxCapacity();
+                case 8:
+                    System.out.println("Thanks for using this services");
+                    break;
+                default:
+                    System.out.println("Invalid choice! Enter again");
+            }
+
+        } while (choice != 8);
 
     }
 }

@@ -17,10 +17,10 @@ public class Email {
     // Constructor to receive the first name and last name
     Email(){
         System.out.println("Enter your first name : ");
-        firstName = s.nextLine();
+        firstName = s.next();
 
         System.out.println("Enter your last name : ");
-        lastName = s.nextLine();
+        lastName = s.next();
 
         this.department = setDepartment();
         System.out.println("Your department is : " + this.department);
@@ -29,9 +29,7 @@ public class Email {
         System.out.println("This application generate a random password for every employee");
         this.password = randomPassword(10);
 
-        // combine elements to generate email
-        email = firstName.toLowerCase() + "." + lastName.toLowerCase() + "@" + department + "." + companySuffix;
-//        System.out.println("Your email is: " + email);
+        setEmail();
 
 
     }
@@ -54,6 +52,11 @@ public class Email {
         }
     }
 
+    // setting email
+    private void setEmail(){
+        // combine elements to generate email
+        email = firstName.toLowerCase().trim() + "." + lastName.toLowerCase().trim() + "@" + department + "." + companySuffix;
+    }
     // generate a random password
     private String randomPassword(int length) {
         String passwordSet = "ABCDEFGHIJKLMNOPQRS123456789!@#$%^" + "abcdefghjklmnopqrstuvwxyz";
@@ -81,17 +84,33 @@ public class Email {
 
     // set the alternative email
     public void setAlternateEmail() {
-        System.out.println("Enter new alternate email : ");
-        String altEmail = s.nextLine();
-        this.alternateEmail = altEmail;
+        while (true) {
+            System.out.println("Enter new alternate email : ");
+            this.alternateEmail = s.nextLine();
+            if (alternateEmail.length() > 0) {
+                System.out.println("You can need enter input");
+                break;
+            }
+        }
+//        System.out.println("Enter new alternate email : ");
+//        this.alternateEmail = s.nextLine();
+//        while (alternateEmail.length() > 0) {
+//            if (alternateEmail.length() < 0) {
+//                this.alternateEmail = s.nextLine();
+//            }
+//            else {
+//                break;
+//            }
+//        }
     }
 
     // change password
     public void changePassword() {
-        System.out.println("Enter new password : ");
-        String pass = s.nextLine();
+
         while (true) {
-            if (pass.length() >= 8) {
+            System.out.println("Enter new password : ");
+            String pass = s.next();
+            if (pass.length() > 0) {
                 this.password = pass;
                 break;
             }
@@ -103,16 +122,16 @@ public class Email {
         System.out.println(mailboxCapacity);
     }
 
-    public String getAlternateEmail() {
-        return alternateEmail;
+    public void getAlternateEmail() {
+        System.out.println("Your alternate email is : " + alternateEmail);
     }
 
     public void getPassword() {
-        System.out.println(this.password);
+        System.out.println(password);
     }
 
     void getEmail() {
-        System.out.println(email);
+        System.out.println("Your email address : " + email);
     }
 
 
@@ -120,9 +139,9 @@ public class Email {
         System.out.println("Display Name : " + firstName + " " + lastName);
         System.out.println("Company Email : " + email);
         System.out.println("Mail Box capacity : " + mailboxCapacity);
-        System.out.println("Password: " + this.password);
-        System.out.println("MailBox capacity : " + this.mailboxCapacity + "mb");
-        System.out.println("Alter email: " + this.alternateEmail);
+        System.out.println("Password: " + password);
+        System.out.println("MailBox capacity : " + mailboxCapacity + "mb");
+        System.out.println("Alter email: " + alternateEmail);
     }
 }
 

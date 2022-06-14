@@ -24,11 +24,12 @@ public class Main {
         // Creating a new employee(i.e an object of the Email class).
         Email em1 = new Email();
 
+
         int choice;
         do {
             System.out.println("Enter your choice : ");
-            System.out.println(" 1 Show info \n 2 Change Password \n 3 Change mailbox capacity \n 4 set alternate Email \n 5 Get your email address \n 6 Get your password \n 7 Get your mailbox capacity");
-            System.out.println("Enter 8 to Exit");
+            System.out.println(" 1 Show info \n 2 Change Password \n 3 Change mailbox capacity \n 4 set alternate Email \n 5 Get your email address \n 6 Get your password \n 7 Get your mailbox capacity \n 8 Get your alternate email");
+            System.out.println("Enter 9 to Exit");
             choice = s.nextInt();
             switch (choice) {
                 case 1:
@@ -52,13 +53,15 @@ public class Main {
                 case 7:
                     em1.getMailboxCapacity();
                 case 8:
+                    em1.getAlternateEmail();
+                case 9:
                     System.out.println("Thanks for using this services");
                     break;
                 default:
                     System.out.println("Invalid choice! Enter again");
             }
 
-        } while (choice != 8);
+        } while (choice != 9);
 
     }
 }

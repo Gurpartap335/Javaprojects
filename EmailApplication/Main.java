@@ -1,4 +1,4 @@
-/*
+package EmailApplication;/*
 Email Application
 
 Scenario: You are an IT support Administrator Specialist and we are charged with the task
@@ -12,7 +12,7 @@ Your application should do the following:
 email address
 - Have get methods to display the name, email amd mailbox capacity.
  */
-package Project1.EmailApplication;
+
 
 import java.util.InvalidPropertiesFormatException;
 import java.util.Scanner;

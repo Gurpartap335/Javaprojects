@@ -1,4 +1,4 @@
-package Project1.SnakeGame;
+package SnakeGame;
 
 
 import java.awt.*;

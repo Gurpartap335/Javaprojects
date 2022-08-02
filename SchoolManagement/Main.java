@@ -1,4 +1,4 @@
-package Project1.SchoolManagement;
+package SchoolManagement;
 
 public class Main {
     public static void main(String[] args) {

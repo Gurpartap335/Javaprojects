@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Email {
     Scanner s = new Scanner(System.in);
-    private final String firstName;
+    private String firstName;
     private String lastName;
     private String password;
     private String department;
@@ -30,14 +30,17 @@ public class Email {
         this.password = randomPassword(10);
 
         setEmail();
-
-
     }
 
     // ask for the department
     private String setDepartment() {
 
-        System.out.println("Department Codes : \n1 for Sales\n2 for Development\n3 for Account\n0 for none");
+        System.out.println("""
+                Department Code
+                1 for sales
+                2 for development
+                3 account
+                4 for none""");
         Scanner in = new Scanner(System.in);
         System.out.print("Enter code here : ");
         int depChoice = in.nextInt();
@@ -59,13 +62,15 @@ public class Email {
     }
     // generate a random password
     private String randomPassword(int length) {
+
         String passwordSet = "ABCDEFGHIJKLMNOPQRS123456789!@#$%^" + "abcdefghjklmnopqrstuvwxyz";
+
         char[] password = new char[length];
+
         for (int i = 0; i < length; i++) {
             int rand = (int) (Math.random() * passwordSet.length());
             password[i] = passwordSet.charAt(rand);
         }
-
         return new String(password);
     }
 
@@ -81,7 +86,6 @@ public class Email {
         System.out.println("Mailbox capacity changed successfully");
     }
 
-
     // set the alternative email
     public void setAlternateEmail() {
         while (true) {
@@ -92,25 +96,14 @@ public class Email {
                 break;
             }
         }
-//        System.out.println("Enter new alternate email : ");
-//        this.alternateEmail = s.nextLine();
-//        while (alternateEmail.length() > 0) {
-//            if (alternateEmail.length() < 0) {
-//                this.alternateEmail = s.nextLine();
-//            }
-//            else {
-//                break;
-//            }
-//        }
     }
 
     // change password
     public void changePassword() {
-
         while (true) {
             System.out.println("Enter new password : ");
             String pass = s.next();
-            if (pass.length() > 0) {
+            if (pass.length() >= 8) {
                 this.password = pass;
                 break;
             }
@@ -134,30 +127,16 @@ public class Email {
         System.out.println("Your email address : " + email);
     }
 
+    void getDepartment() {
+        System.out.println("Your Department : " + department);
+    }
 
     public void showInfo() {
         System.out.println("Display Name : " + firstName + " " + lastName);
         System.out.println("Company Email : " + email);
-        System.out.println("Mail Box capacity : " + mailboxCapacity);
+        System.out.println("Department: " + department);
         System.out.println("Password: " + password);
         System.out.println("MailBox capacity : " + mailboxCapacity + "mb");
         System.out.println("Alter email: " + alternateEmail);
     }
 }
-
-//    public Email(String firstName, String lastName) {
-//        this.firstName = firstName;
-//        this.lastName = lastName;
-//        System.out.println("New Employee : " + this.firstName + " " + this.lastName);
-//
-//        // call a method asking for the department + return the department
-//        this.department = setDepartment();
-//
-//        // call a method that returns a random password.
-//        this.password = randomPassword(defaultPasswordLength);
-////        System.out.println("Your password is:" + this.password);
-//
-//        // combine elements to generate email
-//        email = firstName.toLowerCase() + "." + lastName.toLowerCase() + "@" + department + "." + companySuffix;
-////        System.out.println("Your email is: " + email);
-//    }

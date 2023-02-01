@@ -5,9 +5,3 @@ public class Main {
 
     }
 }
-/*
-School management system
-
-// money management system for school
-
- */
